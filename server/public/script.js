@@ -4,16 +4,17 @@ const datalisto = document.querySelector(".datalisto");
 const hotels = document.querySelector(".hotels");
 
 const local = `http://localhost:3000/getdata?name=`;
-const placesUrl = `http://localhost:3000/getplaces?country=`;
+const localPlacesUrl = `http://localhost:3000/getplaces?country=`;
+const onlinePlacesUrl = `https://webaheadflights.herokuapp.com/getplaces?country=`;
 
-const online = `https://fly-webahead.herokuapp.com/getdata?name=`;
+const online = `https://webaheadflights.herokuapp.com//getdata?name=`;
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const mapLink = `http://www.google.com/maps/place/`;
 
 let globalData;
 
 function getData(searched) {
-  fetch(`${local}${searched}`)
+  fetch(`${online}${searched}`)
     .then((res) => res.json())
     .then((res) => {
       renderList(res);
@@ -25,7 +26,7 @@ function getData(searched) {
 }
 
 function getPlaces(searched) {
-  fetch(`${placesUrl}${searched}`)
+  fetch(`${onlinePlacesUrl}${searched}`)
     .then((res) => res.json())
     .then((res) => {
       let first_five = res.results.slice(0, 5);

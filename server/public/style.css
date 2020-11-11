@@ -85,23 +85,6 @@ span {
   color: #000;
 }
 
-/* <div class="hotel">
-          <h3>Chelsea Inn Hotel</h3>
-          <div class="content">
-            <p>
-              46 West 17th Street, Between 5th and 6th Avenue, New York, NY
-              10011, United States
-            </p>
-          </div>
-          <div class="icon">
-            <img
-              alt=""
-              src="https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png"
-            />
-          </div>
-          <div class="rating"><i class="fas fa-star"></i><span> 4.5</span></div>
-        </div> */
-
 .hotels {
   width: 100%;
   display: flex;
