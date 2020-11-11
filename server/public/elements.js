@@ -18,3 +18,23 @@ function generateElement(airport) {
 
   return newDom;
 }
+
+function generateHotels(hotel) {
+  let newDom = `
+  <h3>${hotel.name}</h3>
+  <div class="content">
+    <p>
+      ${hotel.formatted_address}
+    </p>
+  </div>
+  <div class="icon">
+    <img
+      alt=""
+      class="icon-img"
+      src="${hotel.icon}"
+    />
+  </div>
+  <div class="rating"><i class="fas fa-star"></i><span> ${hotel.rating}</span></div>`;
+
+  return newDom;
+}
