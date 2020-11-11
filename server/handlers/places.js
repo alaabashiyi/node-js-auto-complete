@@ -1,6 +1,6 @@
 const getPlaces = require("./axios-api");
+const missingHandler = require("../handlers/missing");
 const url = require("url");
-const cJson = require("circular-json");
 
 const nodata = { name: "Place choose a country" };
 
@@ -9,15 +9,13 @@ const placesHandler = async (req, res) => {
     const placeUrl = url.parse(req.url, true);
     const { country } = placeUrl.query;
     if (!country) {
-      res.writeHead(400, { "content-type": "application/json" });
-      res.end(JSON.stringify(nodata));
+      missingHandler(req, res);
       return;
     }
     const places = await getPlaces(country);
 
     if (places.data.status == "ZERO_RESULTS") {
-      res.writeHead(404, { "content-type": "application/json" });
-      res.end(JSON.stringify(places.data));
+      missingHandler(req, res);
       return;
     }
 

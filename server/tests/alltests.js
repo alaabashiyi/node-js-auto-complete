@@ -23,42 +23,47 @@ const results = {
   carriers: "56",
 };
 
+const tambolaka = encodeURI("/getdata?name=Tambolaka Airport");
+
 //test 1
 test("should returns if the name in the object  of the body equals to  the name  'Tambolaka Airport'", (t) => {
   supertest(router)
-    .get("/getdata?name=Tambolaka Airport")
+    .get(decodeURI(tambolaka))
     .expect(200)
     .expect("content-type", "application/json")
     .end((err, res) => {
       t.error(err);
-      console.log(res.body[0].name);
+
       t.equal(res.body[0].name, "Tambolaka Airport");
       t.end();
     });
 });
+
+const benGurion = encodeURI("/getdata?name=ben gurion");
+
 //test 2
 test("should returns if the object in the body equals to the object of the results", (t) => {
   supertest(router)
-    .get("/getdata?name=ben gurion")
+    .get(decodeURI(benGurion))
     .expect(200)
     .expect("content-type", "application/json")
     .end((err, res) => {
       t.error(err);
-      console.log(res.body[0]);
+
       t.deepEqual(res.body[0], results);
       t.end();
     });
 });
 
+const tamraAirport = encodeURI("/getdata?name=Tamra Airport");
 //test3
 test(" testing missing airport", (t) => {
   supertest(router)
-    .get("/getdata?name=Tamra Airport")
+    .get(decodeURI(tamraAirport))
     .expect(200)
     .expect("content-type", "application/json")
     .end((err, res) => {
       t.error(err);
-      console.log(res.body[0].name);
       t.equal(res.body[0].name, "cannotfind");
       t.end();
     });
@@ -130,7 +135,7 @@ test("home page", (t) => {
     .expect("content-type", "text/html")
     .end((err, res) => {
       t.error(err);
-      console.log(res);
+
       t.equal(res.text, "<h1>Not found</h1>");
       t.end();
     });
