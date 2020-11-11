@@ -1,0 +1,31 @@
+{
+  "name": "fly-webahead",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node server/tests/alltests.js",
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebAhead7/fly-webahead.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebAhead7/fly-webahead/issues"
+  },
+  "homepage": "https://github.com/WebAhead7/fly-webahead#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.0",
+    "tape": "^5.0.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "circular-json": "^0.5.9",
+    "dotenv": "^8.2.0"
+  }
+}
